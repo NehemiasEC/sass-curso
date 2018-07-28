@@ -6,11 +6,15 @@ const liveReloadPlugin = require('webpack-livereload-plugin');
 
 
 
+const directoryPath = path.join(__dirname)
+
 module.exports={
     mode:'development',
-    entry:'./src/client/index.js',
+    entry:{
+        app: path.resolve(__dirname, 'src/client/App.js')
+    },
     output:{
-        path:path.join(__dirname,'/dist'),
+        path:path.resolve(__dirname,'dist'),
         filename:'[name].js'
     },
     module:{
