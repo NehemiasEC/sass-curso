@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(33, 214, 113);
+}
+
+
+.container{
+    display: -webkit-inline-flex;
+    display: -ms-inline-flex;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+
+.box-1{
+    flex: 5;
+    order:2;
+}
+
+
+.box-2{
+    flex: 1;
+    order:3;
+}
+
+.box-3{
+    flex:1;
+    order:1;
+}
