@@ -4,7 +4,7 @@
   "description": "sass webpack ",
   "main": "index.js",
   "scripts": {
-    "start": "npm run dev & webpack-dev-server --hot",
+    "start": "npm run dev & webpack-dev-server",
     "dev": "webpack",
     "server": "nodemon src/server/index.js"
   },
