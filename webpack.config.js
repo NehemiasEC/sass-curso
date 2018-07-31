@@ -37,6 +37,10 @@ module.exports={
                 exclude:/node_modules/
             },
             {
+                test:/\.json$/,
+                use:'json-loader'
+            },
+            {
                 test:/\.css$/,
                 use:[{
                     loader:MiniCssExtractPlugin.loader,
@@ -46,6 +50,16 @@ module.exports={
                 },
                 "css-loader"
             ]
+            },
+            {
+                test:/\.(jpg|png)$/,
+                use:{
+                    loader:'url-loader',
+                    options:{
+                        limit:100000,
+                        name:'images/[name].[hash].[ext]'
+                    }
+                }
             }
         ]
     },
@@ -54,7 +68,7 @@ module.exports={
             'template':'src/client/index.html'
         }),
         new MiniCssExtractPlugin({
-            filename:"css/[name].css",
+            filename:"css/[name].[hash].css",
             chunkFilename:"[id].css"
         })
     ]
