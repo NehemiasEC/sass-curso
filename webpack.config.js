@@ -14,12 +14,13 @@ const directoryPath = path.join(__dirname)
 module.exports={
     mode:'development',
     entry:{
+        vendor:['react','react-dom','redux'],
         app: path.resolve(__dirname, 'src/client/App.js'),
         index:path.resolve(__dirname,'src/client/index.js')
     },
     output:{
         path:path.resolve(__dirname,'dist'),
-        filename:'[name].js'
+        filename:'js/[name].js'
     },
     devServer:{
             port:3000,
@@ -71,5 +72,17 @@ module.exports={
             filename:"css/[name].[hash].css",
             chunkFilename:"[id].css"
         })
-    ]
+    ],
+    optimization:{
+        splitChunks:{
+            cacheGroups:{
+                vendor:{
+                    chunks:'initial',
+                    name:'vendor',
+                    test:'vendor',
+                    enforce:true
+                }
+            }
+        }
+    }
 }
